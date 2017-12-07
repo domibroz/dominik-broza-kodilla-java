@@ -1,7 +1,23 @@
 package com.kodilla.testing;
 
+import com.kodilla.testing.calculator.Calculator;
+
 public class TestingMain {
     public static void main(String[] args){
-        System.out.println("Moduł 6. Wprowadzenie to testowania oprogramowania");
+        Calculator calculator = new Calculator();
+
+        if (calculator.add(3,3)==6){
+            System.out.println("Add test OK");
+        }
+        else {
+            System.out.println("Add test ERROR");
+        }
+
+        if (calculator.substract(3,2)==1){
+            System.out.println("Add test OK");
+        }
+        else {
+            System.out.println("Add test ERROR");
+        }
     }
 }

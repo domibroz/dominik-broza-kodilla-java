@@ -1,7 +1,7 @@
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
-.kodilla-testing/out/production/classes/com/kodilla/testing
+.kodilla-testing/out/production/classes/com/kodilla/testing/
 
 ### STS ###
 .apt_generated

@@ -25,7 +25,6 @@ nbdist/
 kodilla-testing/build/
 kodilla-testing/out/
 kodilla-testing/src/main/resources/
-kodilla-testing/src/test/
 out/test/
 src/main/resources/static/
 src/main/resources/templates/

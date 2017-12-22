@@ -78,6 +78,52 @@ public class BookDirectoryTestSuite {
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
 
+    @Test
+    public void testListBooksInHandsOfZero(){
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        LibraryUser libraryUser = new LibraryUser("Jan", "Kowalski", "1234567890");
+        List<Book> bookList = new ArrayList<>();
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(bookList);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> actualBooks = bookLibrary.listBooksInHandsOf(libraryUser);
+
+        assertTrue(actualBooks.isEmpty());
+    }
+
+    @Test
+    public void testListBooksInHandsOfOne(){
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        LibraryUser libraryUser = new LibraryUser("Jan", "Kowalski", "1234567890");
+        List<Book> bookList = new ArrayList<>();
+        Book book = new Book("title", "author", 1992);
+        bookList.add(book);
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(bookList);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> actualBooks = bookLibrary.listBooksInHandsOf(libraryUser);
+
+
+        assertEquals(bookList, actualBooks);
+    }
+
+    @Test
+    public void testListBooksInHandsOfFive(){
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        LibraryUser libraryUser = new LibraryUser("Jan", "Kowalski", "1234567890");
+        List<Book> bookList = new ArrayList<>();
+        bookList.add(new Book("title", "author", 1992));
+        bookList.add(new Book("title", "author", 1992));
+        bookList.add(new Book("title", "author", 1992));
+        bookList.add(new Book("title", "author", 1992));
+        bookList.add(new Book("title", "author", 1992));
+
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(bookList);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> actualBooks = bookLibrary.listBooksInHandsOf(libraryUser);
+
+
+        assertEquals(bookList, actualBooks);
+    }
+
     private List<Book> generateListOfNBooks(int booksQuantity) {
         List<Book> resultList = new ArrayList<Book>();
         for(int n = 1; n <= booksQuantity; n++){

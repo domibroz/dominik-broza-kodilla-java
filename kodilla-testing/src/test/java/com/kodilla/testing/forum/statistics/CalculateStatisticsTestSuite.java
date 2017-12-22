@@ -18,7 +18,7 @@ public class CalculateStatisticsTestSuite {
         return resultList;
     }
     @Test
-    public void testCalculateAdvStatisticsCase1(){
+    public void testCalculateAdvStatistics10UserNames(){
         Statistics statisticsMock = mock(Statistics.class);
         int postCountMock = 0;
         List<String> userNamesMock = generateListOfUserNames(10);
@@ -40,7 +40,7 @@ public class CalculateStatisticsTestSuite {
     }
 
     @Test
-    public void testCalculateAdvStatisticsCase2(){
+    public void testCalculateAdvStatistics100UserNames10Comments(){
         Statistics statisticsMock = mock(Statistics.class);
         int postCountMock = 0;
         List<String> userNamesMock = generateListOfUserNames(100);
@@ -62,7 +62,7 @@ public class CalculateStatisticsTestSuite {
     }
 
     @Test
-    public void testCalculateAdvStatisticsCase3(){
+    public void testCalculateAdvStatistics1Post100UserNames10Comments(){
         Statistics statisticsMock = mock(Statistics.class);
         int postCountMock = 1;
         List<String> userNamesMock = generateListOfUserNames(100);

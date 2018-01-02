@@ -6,13 +6,6 @@ import java.util.Set;
 public class Continent {
     Set<Country> countries = new HashSet<>();
 
-
-
     public Continent() {
-
-
-
     }
-
-
 }

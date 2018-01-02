@@ -7,19 +7,10 @@ import java.util.Set;
 public class World {
     Set<Continent> continents = new HashSet<>();
 
-    public World() {
-
-
-    }
-
     public BigDecimal getPeopleQuantity() {
         return continents.stream()
                 .flatMap(continent -> continent.countries.stream())
                 .map(country -> country.getPeopleQuantity())
                 .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
-
-
-
-
     }
 }

@@ -3,6 +3,7 @@ package com.kodilla.stream.world;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Predicate;
 
 public class World {
     Set<Continent> continents = new HashSet<>();

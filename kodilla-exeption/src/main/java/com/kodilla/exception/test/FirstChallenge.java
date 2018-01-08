@@ -13,13 +13,14 @@ public class FirstChallenge {
 
         FirstChallenge firstChallenge = new FirstChallenge();
 
-        double result = 0;
+        double result;
         try {
             result = firstChallenge.divide(3, 0);
+            System.out.println(result);
         } catch (ArithmeticException e) {
             e.printStackTrace();
         } finally {
-            System.out.println(result);
+            System.out.println("End.");
         }
 
 

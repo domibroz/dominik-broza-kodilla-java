@@ -2,27 +2,27 @@ package com.kodilla.exception.test;
 
 public class FirstChallenge {
 
-    public double divide(double a, double b) throws ArithmeticException{
-        double result = 0.0;
-
-        try {
-            result = a / b;
-        } catch (ArithmeticException e) {
-            e.printStackTrace();
+    public double divide(double a, double b) throws ArithmeticException {
+        if(b == 0){
+            throw new ArithmeticException();
         }
-        finally {
-            System.out.println("End.");
-        }
-        return result;
+        return a / b;
     }
 
     public static void main(String[] args) {
 
         FirstChallenge firstChallenge = new FirstChallenge();
 
-        double result = firstChallenge.divide(3, 0);
+        double result = 0;
+        try {
+            result = firstChallenge.divide(3, 0);
+        } catch (ArithmeticException e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println(result);
+        }
 
-        System.out.println(result);
+
 
     }
 }

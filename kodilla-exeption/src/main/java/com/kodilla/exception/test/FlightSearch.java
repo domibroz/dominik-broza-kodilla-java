@@ -8,11 +8,16 @@ public class FlightSearch {
         Map<String , Boolean> airports = new HashMap<>();
         airports.put("GDI", true);
         airports.put("WAW", false);
-        if(airports.get(flight.getArrivalAirport())){
-            System.out.println("You can fly from: " + flight.getDepartureAirport()+" to: " + flight.getArrivalAirport());
-        }
-        else {
-            throw new RouteNotFoundException();
+        try {
+            if(airports.get(flight.getArrivalAirport())){
+                System.out.println("You can fly from: " + flight.getDepartureAirport()+" to: " + flight.getArrivalAirport());
+            }
+            else {
+                System.out.println("You can not fly from: " + flight.getDepartureAirport() + " to: " + flight.getArrivalAirport());
+                throw new RouteNotFoundException();
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Wrong destination!");
         }
     }
     public static void main(String[] args) {
@@ -22,7 +27,7 @@ public class FlightSearch {
         try {
             findFlight(fly);
         } catch (RouteNotFoundException e) {
-            System.out.println("You can not fly to: "+ fly.getArrivalAirport());
+            System.out.println("The "+ fly.getArrivalAirport() + " airport is not available.");
         }
 
     }

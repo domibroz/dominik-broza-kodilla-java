@@ -13,23 +13,16 @@ public class ProductOrderService {
 
     public void order(Order order) {
         boolean isAvailable = storeService.isAvailable(order.getProduct());
+        boolean save = false;
         if (isAvailable) {
-            boolean save = orderRepository.save(order);
-            String inform = informationService.inform(order, true);
+            save = orderRepository.save(order);
+            String inform = informationService.inform(order, true, save);
             System.out.println(inform);
 
         } else {
-            String inform = informationService.inform(order, false);
+            String inform = informationService.inform(order, false, save);
             System.out.println(inform);
         }
-    }
-
-    public static void main(String[] args) {
-        ProductOrderService productOrderService = new ProductOrderService(new InMemoryStoreService(), new InMemoryOrderRepository(), new InMemoryInformationService());
-        PurchaseSimulator purchaseSimulator = new PurchaseSimulator();
-        productOrderService.order(purchaseSimulator.purchase());
-
-
     }
 
 

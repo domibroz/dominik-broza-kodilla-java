@@ -1,0 +1,52 @@
+package com.kodilla.good.patterns.flights;
+
+import java.util.Objects;
+
+public class Flight {
+    String departureAirport;
+    String intermediateAirport;
+    String arrivalAirport;
+
+    public Flight(String departureAirport, String intermediateAirport, String arrivalAirport) {
+        this.departureAirport = departureAirport;
+        this.intermediateAirport = intermediateAirport;
+        this.arrivalAirport = arrivalAirport;
+    }
+
+    public String getDepartureAirport() {
+        return departureAirport;
+    }
+
+    public String getIntermediateAirport() {
+        return intermediateAirport;
+    }
+
+    public String getArrivalAirport() {
+        return arrivalAirport;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flight flight = (Flight) o;
+        return Objects.equals(getDepartureAirport(), flight.getDepartureAirport()) &&
+                Objects.equals(getIntermediateAirport(), flight.getIntermediateAirport()) &&
+                Objects.equals(getArrivalAirport(), flight.getArrivalAirport());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getDepartureAirport(), getIntermediateAirport(), getArrivalAirport());
+    }
+
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "departureAirport='" + departureAirport + '\'' +
+                ", intermediateAirport='" + intermediateAirport + '\'' +
+                ", arrivalAirport='" + arrivalAirport + '\'' +
+                '}' ;
+    }
+}

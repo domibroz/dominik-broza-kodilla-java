@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Suppliers {
     List<Supplier> suppliers = new ArrayList<>();
-    public void addSupplier(Supplier supplier){
+    public void add(Supplier supplier) {
         suppliers.add(supplier);
     }
-    public List supplierProducts(Supplier supplier){
+    public List<Product> getProductsFor(Supplier supplier) {
         return supplier.productList();
     }
 }

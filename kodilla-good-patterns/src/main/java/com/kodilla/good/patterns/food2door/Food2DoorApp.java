@@ -3,25 +3,26 @@ package com.kodilla.good.patterns.food2door;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.kodilla.good.patterns.food2door.Food2DoorShop.*;
+
 public class Food2DoorApp {
     public static void main(String[] args) {
         Suppliers suppliers = new Suppliers();
-        ExtraFoodShop extraFoodShop = new ExtraFoodShop();
-        suppliers.addSupplier(extraFoodShop);
+        ExtraFoodShop extraFoodSupplier = new ExtraFoodShop();
+        suppliers.add(extraFoodSupplier);
 
-        System.out.println(suppliers.supplierProducts(extraFoodShop));
+        System.out.println(suppliers.getProductsFor(extraFoodSupplier));
 
-        List<Product> order1 = new ArrayList<>();
-        order1.add(new Product("water1l", 0.25));
-        order1.add(new Product("drinkO2", 1.05));
-        Order order = new Order(extraFoodShop, order1);
+        List<Product> orderProductList = new ArrayList<>();
+        orderProductList.add(new Product("water1l", 0.25));
+        orderProductList.add(new Product("drinkO2", 1.05));
+        Order order = new Order(orderProductList);
+        String placeOrder = placeOrder(order, extraFoodSupplier);
+        System.out.println(placeOrder);
 
-        if (extraFoodShop.process(order)) {
-            System.out.println("Order completed");
-        } else {
-            System.out.println("Order failed.");
-        }
-
-
+        HealthyShop healthySupplier = new HealthyShop();
+        suppliers.add(healthySupplier);
+        placeOrder = placeOrder(order, healthySupplier);
+        System.out.println(placeOrder);
     }
 }

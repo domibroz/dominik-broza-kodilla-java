@@ -4,21 +4,15 @@ import java.util.Objects;
 
 public class Flight {
     String departureAirport;
-    String intermediateAirport;
     String arrivalAirport;
 
-    public Flight(String departureAirport, String intermediateAirport, String arrivalAirport) {
+    public Flight(String departureAirport, String arrivalAirport) {
         this.departureAirport = departureAirport;
-        this.intermediateAirport = intermediateAirport;
         this.arrivalAirport = arrivalAirport;
     }
 
     public String getDepartureAirport() {
         return departureAirport;
-    }
-
-    public String getIntermediateAirport() {
-        return intermediateAirport;
     }
 
     public String getArrivalAirport() {
@@ -31,21 +25,19 @@ public class Flight {
         if (o == null || getClass() != o.getClass()) return false;
         Flight flight = (Flight) o;
         return Objects.equals(getDepartureAirport(), flight.getDepartureAirport()) &&
-                Objects.equals(getIntermediateAirport(), flight.getIntermediateAirport()) &&
                 Objects.equals(getArrivalAirport(), flight.getArrivalAirport());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getDepartureAirport(), getIntermediateAirport(), getArrivalAirport());
+        return Objects.hash(getDepartureAirport(), getArrivalAirport());
     }
 
     @Override
     public String toString() {
         return "Flight{" +
                 "departureAirport='" + departureAirport + '\'' +
-                ", intermediateAirport='" + intermediateAirport + '\'' +
                 ", arrivalAirport='" + arrivalAirport + '\'' +
                 '}' ;
     }

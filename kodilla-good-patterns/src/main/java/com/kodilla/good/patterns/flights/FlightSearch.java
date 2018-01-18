@@ -23,11 +23,7 @@ public class FlightSearch {
     }
 
     public String flightsVia(String intermediateAirport) {
-        FlightRepository flightRepository = new FlightRepository();
-        Set<Flight> flights = flightRepository.getFlights().stream()
-                .filter(f -> f.getIntermediateAirport().equals(intermediateAirport))
-                .collect(Collectors.toSet());
-
-        return (flights.toString());
+        FlightSearch flightSearch = new FlightSearch();
+        return flightSearch.flightsTo(intermediateAirport) + flightSearch.flightsFrom(intermediateAirport);
     }
 }

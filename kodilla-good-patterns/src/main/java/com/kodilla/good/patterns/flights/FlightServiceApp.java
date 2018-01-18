@@ -7,10 +7,9 @@ public class FlightServiceApp {
         System.out.println("Flights from WAW: ");
         System.out.println(flightsFrom);
 
-        String flightsVia = flightSearch.flightsVia("KRK");
-        System.out.println("Flights via KRK: ");
+        String flightsVia = flightSearch.flightsVia("WRO");
+        System.out.println("Flights via WRO: ");
         System.out.println(flightsVia);
-
 
     }
 }

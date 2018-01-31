@@ -5,9 +5,11 @@ import java.util.Objects;
 
 public class Order {
     List<Product> orderProducts;
+    Supplier supplier;
 
-    public Order(List<Product> orderProducts) {
+    public Order(List<Product> orderProducts, Supplier supplier) {
         this.orderProducts = orderProducts;
+        this.supplier = supplier;
     }
 
     public List<Product> getOrderProducts() {

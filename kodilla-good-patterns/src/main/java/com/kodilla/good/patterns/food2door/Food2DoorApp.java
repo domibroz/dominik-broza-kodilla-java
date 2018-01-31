@@ -8,7 +8,7 @@ import static com.kodilla.good.patterns.food2door.Food2DoorShop.*;
 public class Food2DoorApp {
     public static void main(String[] args) {
         Suppliers suppliers = new Suppliers();
-        ExtraFoodShop extraFoodSupplier = new ExtraFoodShop();
+        ExtraFoodSupplier extraFoodSupplier = new ExtraFoodSupplier();
         suppliers.add(extraFoodSupplier);
 
         System.out.println(suppliers.getProductsFor(extraFoodSupplier));
@@ -16,13 +16,14 @@ public class Food2DoorApp {
         List<Product> orderProductList = new ArrayList<>();
         orderProductList.add(new Product("water1l", 0.25));
         orderProductList.add(new Product("drinkO2", 1.05));
-        Order order = new Order(orderProductList);
-        String placeOrder = placeOrder(order, extraFoodSupplier);
+        Order order1 = new Order(orderProductList, extraFoodSupplier);
+        String placeOrder = placeOrder(order1);
         System.out.println(placeOrder);
 
-        HealthyShop healthySupplier = new HealthyShop();
+        HealthySupplier healthySupplier = new HealthySupplier();
         suppliers.add(healthySupplier);
-        placeOrder = placeOrder(order, healthySupplier);
+        Order order2 = new Order(orderProductList, healthySupplier);
+        placeOrder = placeOrder(order2);
         System.out.println(placeOrder);
     }
 }

@@ -3,10 +3,10 @@ package com.kodilla.good.patterns.food2door;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExtraFoodShop implements Supplier {
+public class ExtraFoodSupplier implements Supplier {
     List<Product> products = new ArrayList<>();
 
-    public ExtraFoodShop() {
+    public ExtraFoodSupplier() {
         products.add(new Product("water1l", 0.25));
         products.add(new Product("drinkO2", 1.05));
     }

@@ -29,7 +29,7 @@ public class UserInput {
 
     }
 
-    public static boolean unsupported(String input) {
+    public static boolean isSupported(String input) {
         return input.toLowerCase().equals(ROCK)
                 || input.toLowerCase().equals(PAPER)
                 || input.toLowerCase().equals(SCISSORS)

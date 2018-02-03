@@ -13,25 +13,12 @@ public class RpsLogic {
         while (!end) {
             System.out.println(yourTurn());
             String userTurn = scanner.nextLine();
-            if (UserInput.unsupported(userTurn) && !UserInput.isExit(userTurn) && !UserInput.isNewGame(userTurn)) {
-                Choice userChoice = UserInput.getUserChoice(userTurn);
-                Choice compChoice = Comp.compChoice();
-                Single single = new Single();
-                SingleResult result = single.run(userChoice, compChoice);
-                System.out.println(singleResultInfo(userChoice, compChoice));
-                if (result.userWon() && !result.isDraw()) {
-                    user++;
-                    System.out.println(userRoundWon());
-                    end = allRounds(rounds, user, "user");
-                } else if(!result.userWon() && !result.isDraw()) {
-                    comp++;
-                    System.out.println(compRoundWon());
-                    end = allRounds(rounds, comp, "computer");
-                }else{
-                    System.out.println(drawRound());
+            if (UserInput.isExit(userTurn)) {
+                System.out.println(exit());
+                String s = scanner.nextLine();
+                if (UserInput.yesNo(s)) {
+                    end = true;
                 }
-            } else if (!UserInput.unsupported(userTurn)) {
-                System.out.println(unsupportedInput());
             } else if (UserInput.isNewGame(userTurn)) {
                 System.out.println(newGame());
                 String s = scanner.nextLine();
@@ -40,21 +27,32 @@ public class RpsLogic {
                     end = true;
                     RpsRunner.rps();
                 }
-
-            } else if (UserInput.isExit(userTurn)) {
-                System.out.println(exit());
-                String s = scanner.nextLine();
-                if (UserInput.yesNo(s)) {
-                    end = true;
+            } else if (!UserInput.isSupported(userTurn)) {
+                System.out.println(unsupportedInput());
+            } else {
+                Choice userChoice = UserInput.getUserChoice(userTurn);
+                Choice compChoice = Comp.compChoice();
+                Single single = new Single();
+                SingleResult result = single.run(userChoice, compChoice);
+                System.out.println(singleResultInfo(userChoice, compChoice));
+                if (result.isDraw()) {
+                    System.out.println(drawRound());
+                } else if (result.userWon()) {
+                    user++;
+                    System.out.println(userRoundWon());
+                    end = isGameCompleted(rounds, user, Player.USER);
+                } else {
+                    comp++;
+                    System.out.println(compRoundWon());
+                    end = isGameCompleted(rounds, comp, Player.COMPUTER);
                 }
             }
         }
-
     }
 
-    public static boolean allRounds(int rounds, int playerResult, String player) {
+    public static boolean isGameCompleted(int rounds, int playerResult, Player player) {
         if (playerResult >= rounds) {
-            if (player.equals("user")) {
+            if (player.equals(Player.USER)) {
                 System.out.println(userGameWon());
                 return true;
             } else {

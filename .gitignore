@@ -1,6 +1,7 @@
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
+
 ### STS ###
 .apt_generated
 .classpath
@@ -17,15 +18,8 @@
 
 ### NetBeans ###
 nbproject/private/
+build/
 nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-/out/production/
-kodilla-testing/build/
-kodilla-testing/out/
-kodilla-testing/src/main/resources/
-out/test/
-src/main/resources/static/
-src/main/resources/templates/
-src/test/resources/

@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Scanner;
 
 import static com.kodilla.rps.Notifications.*;
-import static com.kodilla.rps.RpsLogic.*;
+import static com.kodilla.rps.RpsLogic.rpsRun;
 
 public class RpsRunner {
     public static void main(String[] args) {

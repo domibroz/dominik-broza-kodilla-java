@@ -8,6 +8,7 @@ import static com.kodilla.good.patterns.food2door.Food2DoorShop.*;
 public class Food2DoorApp {
     public static void main(String[] args) {
         Suppliers suppliers = new Suppliers();
+
         ExtraFoodSupplier extraFoodSupplier = new ExtraFoodSupplier();
         suppliers.add(extraFoodSupplier);
 

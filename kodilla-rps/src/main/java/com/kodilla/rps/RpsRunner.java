@@ -5,7 +5,6 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Scanner;
 
 import static com.kodilla.rps.Notifications.*;
-import static com.kodilla.rps.RpsLogic.rpsRun;
 
 public class RpsRunner {
     public static void main(String[] args) {
@@ -20,7 +19,9 @@ public class RpsRunner {
         String rounds = scanner.nextLine();
         if (StringUtils.isNumeric(rounds)) {
             System.out.println(instructions());
-            rpsRun(Integer.parseInt(rounds));
+            //TODO how to convert InputStream to Readable
+            RpsLogic rpsLogic = new RpsLogic(null, new Comp());
+            rpsLogic.rpsRun(Integer.parseInt(rounds));
         } else {
             System.out.println(notNumeric());
             rps();

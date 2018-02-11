@@ -5,11 +5,19 @@ import java.util.Scanner;
 import static com.kodilla.rps.Notifications.*;
 
 public class RpsLogic {
-    public static void rpsRun(int rounds) {
+    Readable userInput;
+    Challenger challenger;
+
+    public RpsLogic(Readable userInput, Challenger challenger) {
+        this.userInput = userInput;
+        this.challenger = challenger;
+    }
+
+    public void rpsRun(int rounds) {
         boolean end = false;
         int user = 0;
         int comp = 0;
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(userInput);
         while (!end) {
             System.out.println(yourTurn());
             String userTurn = scanner.nextLine();
@@ -31,7 +39,7 @@ public class RpsLogic {
                 System.out.println(unsupportedInput());
             } else {
                 Choice userChoice = UserInput.getUserChoice(userTurn);
-                Choice compChoice = Comp.compChoice();
+                Choice compChoice = challenger.getChoice();
                 Single single = new Single();
                 SingleResult result = single.run(userChoice, compChoice);
                 System.out.println(singleResultInfo(userChoice, compChoice));
@@ -50,7 +58,7 @@ public class RpsLogic {
         }
     }
 
-    public static boolean isGameCompleted(int rounds, int playerResult, Player player) {
+    public boolean isGameCompleted(int rounds, int playerResult, Player player) {
         if (playerResult >= rounds) {
             if (player.equals(Player.USER)) {
                 System.out.println(userGameWon());

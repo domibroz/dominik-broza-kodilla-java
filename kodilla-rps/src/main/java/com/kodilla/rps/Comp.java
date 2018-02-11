@@ -2,14 +2,14 @@ package com.kodilla.rps;
 
 import java.util.Random;
 
-public class Comp {
+public class Comp implements Challenger {
     private static Random r = new Random();
 
     private static int generate() {
         return r.nextInt(3) + 1;
     }
 
-    public static Choice compChoice() {
+    public Choice getChoice() {
         int val = generate();
 
         if (val == 1) {

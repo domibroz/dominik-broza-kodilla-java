@@ -6,6 +6,7 @@ import org.junit.Test;
 public class LoggerTestSuite {
     @Test
     public void testGetLastLog(){
+
         Logger.getInstance().log("First log");
 
         String actualLastLog = Logger.getInstance().getLastLog();

@@ -36,7 +36,13 @@ public final class Bigmac {
         }
 
         public Bigmac build() {
-            return new Bigmac(roll, burgers, sauce, ingredients);
+            if(roll == null){
+                throw new IllegalStateException("roll cannot be null");
+            }
+            if(burgers == 0){
+                throw new IllegalStateException("burgers cannot be 0");
+            }
+                return new Bigmac(roll, burgers, sauce, ingredients);
         }
     }
 

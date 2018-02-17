@@ -3,7 +3,7 @@ package com.kodilla.patterns.builder.bigmac;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class BigmaTestSuite {
+public class BigmacTestSuite {
     @Test
     public void testBigmacNew() {
         //Given

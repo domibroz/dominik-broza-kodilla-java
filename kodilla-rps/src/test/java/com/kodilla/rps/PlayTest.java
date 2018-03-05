@@ -8,42 +8,40 @@ import java.nio.CharBuffer;
 
 import static org.mockito.Mockito.*;
 
-import static org.junit.Assert.*;
-
-public class RpsLogicTest {
+public class PlayTest {
     @Test
     public void testIsGameCompletedWhenUserWon() {
-        RpsLogic rpsLogic = new RpsLogic(null, null);
-        boolean result = rpsLogic.isGameCompleted(5, 5, Player.USER);
+        Play play = new Play(null, null);
+        boolean result = play.isGameCompleted(5, 5, Player.USER);
         Assert.assertTrue(result);
     }
 
     @Test
     public void testIsGameCompletedWhenCompWon() {
-        RpsLogic rpsLogic = new RpsLogic(null, null);
-        boolean result = rpsLogic.isGameCompleted(5, 5, Player.COMPUTER);
+        Play play = new Play(null, null);
+        boolean result = play.isGameCompleted(5, 5, Player.COMPUTER);
         Assert.assertTrue(result);
     }
 
     @Test
     public void testIsGameInProgress() {
-        RpsLogic rpsLogic = new RpsLogic(null, null);
-        boolean result = rpsLogic.isGameCompleted(5, 2, Player.USER);
+        Play play = new Play(null, null);
+        boolean result = play.isGameCompleted(5, 2, Player.USER);
         Assert.assertFalse(result);
     }
 
     @Test
     public void testFinishGameWhenUserRequested() {
-        RpsLogic rpsLogic = new RpsLogic(simulateUserInput("X", "YES"), null);
-        rpsLogic.rpsRun(4);
+        Play play = new Play(simulateUserInput("X", "YES"), null);
+        play.rpsRun(4);
 
 
     }
 
     @Test
     public void testUserWon() {
-        RpsLogic rpsLogic = new RpsLogic(simulateUserInput("p", "p", "p"), simulateChallenger(Choice.ROCK, Choice.ROCK, Choice.ROCK));
-        rpsLogic.rpsRun(3);
+        Play play = new Play(simulateUserInput("p", "p", "p"), simulateChallenger(Choice.ROCK, Choice.ROCK, Choice.ROCK));
+        play.rpsRun(3);
 
 
     }

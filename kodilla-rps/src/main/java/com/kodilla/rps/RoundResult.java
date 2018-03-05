@@ -2,23 +2,23 @@ package com.kodilla.rps;
 
 import java.util.Objects;
 
-public class SingleResult {
+public class RoundResult {
     private int result;
 
-    public static SingleResult draw() {
-        SingleResult s = new SingleResult();
+    public static RoundResult draw() {
+        RoundResult s = new RoundResult();
         s.result = 0;
         return s;
     }
 
-    public static SingleResult user() {
-        SingleResult s = new SingleResult();
+    public static RoundResult user() {
+        RoundResult s = new RoundResult();
         s.result = 1;
         return s;
     }
 
-    public static SingleResult comp() {
-        SingleResult s = new SingleResult();
+    public static RoundResult comp() {
+        RoundResult s = new RoundResult();
         s.result = -1;
         return s;
     }
@@ -35,7 +35,7 @@ public class SingleResult {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        SingleResult that = (SingleResult) o;
+        RoundResult that = (RoundResult) o;
         return result == that.result;
     }
 

@@ -4,16 +4,17 @@ import java.util.Scanner;
 
 import static com.kodilla.rps.Notifications.*;
 
-public class RpsLogic {
+public class Play {
     Readable userInput;
     Challenger challenger;
 
-    public RpsLogic(Readable userInput, Challenger challenger) {
+    public Play(Readable userInput, Challenger challenger) {
         this.userInput = userInput;
         this.challenger = challenger;
     }
 
-    public void rpsRun(int rounds) {
+    public boolean rpsRun(int rounds) {
+        boolean newGame = false;
         boolean end = false;
         int user = 0;
         int comp = 0;
@@ -33,15 +34,15 @@ public class RpsLogic {
                 if (UserInput.yesNo(s)) {
                     System.out.println();
                     end = true;
-                    RpsRunner.rps();
+                    newGame = true;
                 }
             } else if (!UserInput.isSupported(userTurn)) {
                 System.out.println(unsupportedInput());
             } else {
                 Choice userChoice = UserInput.getUserChoice(userTurn);
                 Choice compChoice = challenger.getChoice();
-                Single single = new Single();
-                SingleResult result = single.run(userChoice, compChoice);
+                Round round = new Round();
+                RoundResult result = round.run(userChoice, compChoice);
                 System.out.println(singleResultInfo(userChoice, compChoice));
                 if (result.isDraw()) {
                     System.out.println(drawRound());
@@ -56,6 +57,7 @@ public class RpsLogic {
                 }
             }
         }
+        return newGame;
     }
 
     public boolean isGameCompleted(int rounds, int playerResult, Player player) {

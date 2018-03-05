@@ -6,15 +6,15 @@ import org.junit.Test;
 public class RPSTestSuite {
     @Test
     public void testSingleClass() {
-        Single single = new Single();
+        Round round = new Round();
 
-        SingleResult drawResult = single.run(Choice.ROCK, Choice.ROCK);
-        SingleResult userWonResult = single.run(Choice.SCISSORS, Choice.PAPER);
-        SingleResult compWonResult = single.run(Choice.SCISSORS, Choice.ROCK);
+        RoundResult drawResult = round.run(Choice.ROCK, Choice.ROCK);
+        RoundResult userWonResult = round.run(Choice.SCISSORS, Choice.PAPER);
+        RoundResult compWonResult = round.run(Choice.SCISSORS, Choice.ROCK);
 
-        Assert.assertEquals(SingleResult.draw(), drawResult);
-        Assert.assertEquals(SingleResult.user(), userWonResult);
-        Assert.assertEquals(SingleResult.comp(), compWonResult);
+        Assert.assertEquals(RoundResult.draw(), drawResult);
+        Assert.assertEquals(RoundResult.user(), userWonResult);
+        Assert.assertEquals(RoundResult.comp(), compWonResult);
     }
 
     @Test

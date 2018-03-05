@@ -23,3 +23,4 @@ dist/
 nbdist/
 .nb-gradle/
 !/kodilla-rps/build.gradle
+!/kodilla-rps/src/main/java/com/kodilla/rps/Play.java

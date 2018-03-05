@@ -17,6 +17,8 @@ import java.math.BigDecimal;
 public class InvoiceDaoTestSuite {
     @Autowired
     InvoiceDao invoiceDao;
+    @Autowired
+    ProductDao productDao;
 
     @Test
     public void testInvoiceDaoSave() {
@@ -33,7 +35,7 @@ public class InvoiceDaoTestSuite {
         item2.setProduct(product2);
         item3.setProduct(product3);
 
-        Invoice invoice = new Invoice("5/02/18");
+        Invoice invoice = new Invoice("6/02/18");
 
         invoice.getItems().add(item1);
         invoice.getItems().add(item2);
@@ -41,9 +43,8 @@ public class InvoiceDaoTestSuite {
 
         //when
         Invoice returnedInvoice = invoiceDao.save(invoice);
-        Product returnedProduct = returnedInvoice.getItems().get(0).getProduct();
-        System.out.println(returnedProduct);
         int id = returnedInvoice.getId();
+        int productId = product1.getId();
 
         //then
         Assert.assertNotEquals(0, id);
@@ -52,8 +53,11 @@ public class InvoiceDaoTestSuite {
         //cleanUp
         invoiceDao.delete(id);
 
-        //after cleanUp
-        Assert.assertNotNull(product1);
+        //then
+        //check if product removed after invoice deleted
+        //if not assertion true
+        Assert.assertEquals(product1.getName(), productDao.findOne(productId).getName());
+
 
     }
 }

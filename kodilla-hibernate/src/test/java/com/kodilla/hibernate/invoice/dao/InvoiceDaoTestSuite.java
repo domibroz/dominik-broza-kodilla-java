@@ -54,9 +54,7 @@ public class InvoiceDaoTestSuite {
         invoiceDao.delete(id);
 
         //then
-        //check if product removed after invoice deleted
-        //if not assertion true
-        Assert.assertEquals(product1.getName(), productDao.findOne(productId).getName());
+        Assert.assertNotNull(productDao.findOne(productId).getName());
 
 
     }

@@ -28,14 +28,6 @@ public class Play {
                 if (UserInput.yesNo(s)) {
                     end = true;
                 }
-            } else if (UserInput.isNewGame(userTurn)) {
-                System.out.println(newGame());
-                String s = scanner.nextLine();
-                if (UserInput.yesNo(s)) {
-                    System.out.println();
-                    end = true;
-                    newGame = true;
-                }
             } else if (!UserInput.isSupported(userTurn)) {
                 System.out.println(unsupportedInput());
             } else {

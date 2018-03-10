@@ -13,6 +13,7 @@ public class RpsRunner {
     }
 
     public static void rps() {
+        while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.println(welcome());
             String name = scanner.nextLine();
@@ -21,12 +22,15 @@ public class RpsRunner {
             if (StringUtils.isNumeric(rounds)) {
                 System.out.println(instructions());
                 Play play = new Play(new InputStreamReader(System.in), new Comp());
-                if(play.rpsRun(Integer.parseInt(rounds))){
-                    rps();
-                }
+                play.rpsRun(Integer.parseInt(rounds));
             } else {
                 System.out.println(notNumeric());
-                rps();
             }
+            System.out.println(newGame());
+            String newGame = scanner.nextLine();
+            if (!UserInput.isNewGame(newGame)) {
+                return;
+                }
+            }
+        }
     }
-}

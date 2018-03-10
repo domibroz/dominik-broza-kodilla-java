@@ -31,7 +31,7 @@ public class Notifications {
     }
 
     public static String newGame() {
-        return "Are you sure to start a new game? [YES/NO]";
+        return "Do you want to start a new game? If yes press N";
     }
 
     public static String exit() {

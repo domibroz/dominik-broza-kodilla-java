@@ -33,8 +33,7 @@ public class UserInput {
         return input.toLowerCase().equals(ROCK)
                 || input.toLowerCase().equals(PAPER)
                 || input.toLowerCase().equals(SCISSORS)
-                || input.toLowerCase().equals(EXIT)
-                || input.toLowerCase().equals(NEW_GAME);
+                || input.toLowerCase().equals(EXIT);
     }
 
     public static Choice getUserChoice(String input) {

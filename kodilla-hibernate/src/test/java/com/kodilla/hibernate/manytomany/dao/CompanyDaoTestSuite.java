@@ -105,13 +105,13 @@ public class CompanyDaoTestSuite {
         int lindaKovalskyId = lindaKovalsky.getId();
 
         //When
-        List<Employee> lastnameList = employeeDao.retrieveEmployeesWithLastameEquals("Smith");
-        List<Company> companiesByThreeLettersList = companyDao.retrieveCompanyByThreeLetters("Gre");
+        List<Employee> FindEmployee = employeeDao.retrieveEmployeeName("Kovalsky");
+        List<Company> FindCompany = companyDao.retrieveCompanyName("Sof");
 
         //Then
 
-        Assert.assertEquals(1, lastnameList.size());
-        Assert.assertEquals(1, companiesByThreeLettersList.size());
+        Assert.assertEquals(1, FindEmployee.size());
+       Assert.assertEquals(1, FindCompany.size());
 
         //CleanUp
        try {

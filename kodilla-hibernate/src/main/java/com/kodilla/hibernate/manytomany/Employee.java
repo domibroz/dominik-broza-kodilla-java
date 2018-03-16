@@ -4,9 +4,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-@NamedQuery(
-        name = "Employee.retrieveEmployeesWithLastameEquals",
-        query = "FROM Employee WHERE lastname = :LASTNAME"
+@NamedNativeQuery(
+        name = "Employee.retrieveEmployeeName",
+        query = "FROM Employee WHERE lastname > :LASTNAME"
 )
 @Entity
 @Table(name = "EMPLOYEES")

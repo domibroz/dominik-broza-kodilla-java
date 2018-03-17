@@ -4,7 +4,6 @@ import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.dao.CompanyDao;
 import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
 import com.kodilla.hibernate.manytomany.facade.Facade;
-import com.kodilla.hibernate.manytomany.facade.SearchingException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,7 +25,7 @@ public class FacadeTestSuite {
 
 
     @Test
-    public void searchCompany() throws SearchingException{
+    public void searchCompany(){
         //Given
         Company softwareMachine = new Company("Software Machine");
         Company dataMaesters = new Company("Data Maesters");

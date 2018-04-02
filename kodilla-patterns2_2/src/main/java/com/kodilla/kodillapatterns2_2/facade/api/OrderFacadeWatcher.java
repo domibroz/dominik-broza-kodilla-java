@@ -28,9 +28,9 @@ public class OrderFacadeWatcher {
         LOGGER.info("without errors.");
     }
 
-    @AfterThrowing("execution(* com.kodilla.kodillapatterns2_2.facade.api.OrderFacade.processOrder(..))")
-    public void logAfterThrowing() {
-        LOGGER.info("with exception!");
+    @AfterThrowing(value = "execution(* com.kodilla.kodillapatterns2_2.facade.api.OrderFacade.processOrder(..))", throwing = "e")
+    public void logAfterThrowing(OrderProcessingException e) throws Throwable {
+        LOGGER.info("with exception: " + e);
     }
 
     @Around("execution(* com.kodilla.kodillapatterns2_2.facade.api.OrderFacade.processOrder(..))")
